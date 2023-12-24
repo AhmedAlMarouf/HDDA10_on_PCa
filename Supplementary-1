@@ -1,0 +1,9 @@
+IHC Block Selection Method:
+If there's was a conflicting scenario, where for example a patient might be matched to two biopsies with IHC identifiers, A-2 and B-2, the tie can be resolved based on the value of the “qc_research_1” column. This field, found in the “210318_UCalgary_AllInfo.xlsx” metadata file, contains additional information on the quality of the block, and the higher qualities are reflected by lower field values. Therefore, the block with the minimum respective value should be selected. 
+The following steps are followed for IHC Block Selection Algorithm:
+1. The IHC blocks information will be extracted through the use of regular expression (regex). 
+2. The block (usually identified by a letter ranging from *A* to *F*) with the lowest numerical value (following the hyphen) will be chosen. Example:  
+`"A-4"   "B-1"   "B-4"   "C-1X2"`  
+In this case, any of the A or Cs would do.  
+3. If there's further conflict, the `qc_research_1` column from DecipherBio's clinical file can be utilized for further resolution. 
+See the "IHC_block_selection.Rmd" file for the codes.
