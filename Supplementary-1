@@ -6,4 +6,4 @@ The following steps are followed for IHC Block Selection Algorithm:
 `"A-4"   "B-1"   "B-4"   "C-1X2"`  
 In this case, any of the A or Cs would do.  
 3. If there's further conflict, the `qc_research_1` column from DecipherBio's clinical file can be utilized for further resolution. 
-See the "IHC_block_selection.Rmd" file for the codes.
+See the "IHC_block_selection.html" file for the codes and execution samples.
