@@ -1,0 +1,12 @@
+Needle Biopsy Data Cleaning:
+
+For needle biopsy samples, that field can be found as surgical_biopsy_number or bx_uid, whereas for the radical prostatectomy samples 
+the field name is either Prostatectomy Surgical # or surgical_rp_number. The metadata file 210318_UCalgary_AllInfo.xlsx contained the 
+Bx or RP ID numbers under the specimen column. At this point it is important to mention that due to the changes in personnel and the 
+passing of a significant amount of time since the relevant study was completed, not every piece of information could be thoroughly explained 
+by the institution that curated the data. In many cases, the values in the specimen column would follow the format SR-XX-YYYY-ZZ/JJJ. 
+The suffix JJJ looked similar to the IHC block information, which is why, when available, it populated a new column named block identifier in
+the file uofc_complete_decipher_file_final.csv (the resulting file of the preprocessing). The ZZ part was discarded due to lack of further information.
+After utilizing all pairs of Bx-RP numbers (eventually each patient should be matched to a pair of IDs, one of each kind), 399 out of 404 total samples were matched. 
+The biopsy samples that lack matching RP samples are the ones with IDs “SR-01-1311” and “SR-07-10477” (3 + 2 biopsy samples respectively, due to multiplicity). 
+The code used for this can be found in the "data_cleanup.R" file.
